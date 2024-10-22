@@ -4,7 +4,7 @@
   }
 </style>
 
-# Welcome to my Graphite Page
+# Welcome to our CTF Write up page.
 
 This is a simple Markdown page with a graphite background.
 
