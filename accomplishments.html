@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accomplishments</title>
+
+     <!-- Google Fonts for PT Mono -->
+     <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+
+
+     <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+    <style>
+        body {
+            background-color: #333333;
+            color: rgb(4, 250, 37);
+            font-family: 'PT Mono', monospace;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth; /* Enable smooth scroll */
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #222222;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* Add some space between the link and other elements */
+        .navbar a:hover {
+            color: #1e8f36; /* Hover effect */
+        }
+
+        /* Adjust the content to be below the navbar */
+        .container {
+            max-width: 1200px;
+            margin: 60px auto 0; /* Add top margin to avoid overlap with navbar */
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #444444;
+        }
+
+        tr:nth-child(even) {
+            background-color: #555555;
+        }
+
+        /* Filter buttons for year */
+        .filter {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter button {
+            background-color: #444444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .filter button:hover {
+            background-color: #1e8f36;
+        }
+
+        /* Footer section */
+        footer {
+            background-color: #222222;
+            padding: 20px;
+            text-align: center;
+            color: #888888;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            width: 48%;
+            margin: 10px 0;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+
+
+        /* Media Queries for Responsive Design */
+
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack logo and navigation */
+        align-items: center; /* Center align items */
+    }
+
+    .logo {
+        margin-bottom: 10px; /* Add space below the logo */
+    }
+
+    .main-content h1 {
+        font-size: 2.5em; /* Reduce font size for smaller screens */
+    }
+
+    .main-content p {
+        font-size: 1.2em; /* Reduce paragraph font size */
+    }
+
+    .buttons a {
+        font-size: 1em; /* Adjust button font size */
+        padding: 8px 15px; /* Adjust padding */
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column; /* Stack navigation links */
+        gap: 10px; /* Add gap between links */
+    }
+
+    nav a {
+        font-size: 1em; /* Reduce font size for mobile */
+        padding: 8px; /* Adjust padding */
+    }
+
+    .main-content {
+        padding: 20px; /* Reduce padding for mobile */
+    }
+
+    .main-content h1 {
+        font-size: 2em; /* Further reduce heading font size */
+    }
+
+    .main-content p {
+        font-size: 1em; /* Further reduce paragraph font size */
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar with link to index.html -->
+    <div class="navbar">
+        <a href="index.html">Team: Madwanzi</a>
+    </div>
+
+    <div class="container">
+        <h1>Accomplishments</h1>
+
+        <!-- Medal Count Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Gold Medals</th>
+                    <th>Silver Medals</th>
+                    <th>Bronze Medals</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024</td>
+                    <td>-</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <!-- Add more rows as necessary -->
+            </tbody>
+        </table>
+
+        <!-- Year Filter Section -->
+        <div class="filter">
+            <button>2024</button>
+
+        </div>
+
+        <!-- Competition Results Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Place</th>
+                    <th>Event Name</th>
+                    <th>CTF Points</th>
+                    <th>Rating Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>DEADFACE CTF 2024</td>
+                    <td>193.0000</td>
+                    <td>0.673</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>TCP1P CTF 2024</td>
+                    <td>300.0000</td>
+                    <td>0.799</td>
+                </tr>
+                <!-- Add more rows as necessary -->
+            </tbody>
+        </table>
+
+        <!-- Organized Events Table -->
+
+    </div>
+ 
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section">
+            <h3>Follow our journey</h3>
+            <div class="social-icons">
+                <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/Madwanzi" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Latest Twitter Posts</h3>
+            <!-- Twitter embed or other content can go here -->
+        </div>
+    </footer>
+
+</body>
+</html>
