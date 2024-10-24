@@ -85,6 +85,9 @@
         /* Buttons section */
         .buttons {
             margin-top: 30px;
+            display: flex; /* Use flexbox */
+            flex-wrap: wrap; /* Allow buttons to wrap */
+            justify-content: center; /* Center buttons horizontally */
         }
 
         .buttons a {
@@ -95,6 +98,8 @@
             margin: 10px;
             font-size: 1.2em;
             border-radius: 5px;
+            flex: 1 1 auto; /* Allow buttons to grow/shrink */
+            min-width: 200px; /* Set a minimum width for buttons */
         }
 
         .buttons a:hover {
