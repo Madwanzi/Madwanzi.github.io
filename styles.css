@@ -2,336 +2,335 @@
 
 /* General Styles */
 body {
-    background-color: #3f3f3f;
-    color: rgb(4, 250, 37);
-    font-family: 'PT Mono', monospace;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-    text-decoration: none;
+  background-color: #3f3f3f;
+  color: rgb(4, 250, 37);
+  font-family: "PT Mono", monospace;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  text-decoration: none;
 }
 
 /* Header Styles */
 header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color:#222222;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #222222;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
 .logo {
-    font-size: 2em;
+  font-size: 2em;
 }
 
 .logo img {
-    width: 50px;
-    height: auto;
-    display: flex;
-    margin-right: 10px;
+  width: 50px;
+  height: auto;
+  display: flex;
+  margin-right: 10px;
 }
 
 /* Navigation Styles */
 nav {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.2em;
-    padding: 5px 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+  padding: 5px 10px;
 }
 
 nav a:hover {
-    background-color: #015c1f;
-    border-radius: 5px;
+  background-color: #015c1f;
+  border-radius: 5px;
 }
 
 /* Main Content Styles */
 .main-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 .main-content h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
+  font-size: 3em;
+  margin-bottom: 10px;
 }
 
 .main-content p {
-    font-size: 1.3em;
-    line-height: 1.6;
+  font-size: 1.3em;
+  line-height: 1.6;
 }
 
 /* Button Styles */
 .buttons {
-    margin-top: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .buttons a {
-    display: flexbox;
-    flex-wrap: wrap;
-    text-decoration: none;
-    background-color: #015c1f;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 1.2em;
-    border-radius: 5px;
-    flex: 1 1 auto;
-    min-width: 200px;
+  display: flexbox;
+  flex-wrap: wrap;
+  text-decoration: none;
+  background-color: #015c1f;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  flex: 1 1 auto;
+  min-width: 200px;
 }
 
 .buttons a:hover {
-    background-color: #1e8f36;
+  background-color: #1e8f36;
 }
 
 /* Footer Styles */
 footer {
-    background-color: #222222;
-    padding: 20px 0;
-    text-align: center;
-    color: #888888;
+  background-color: #222222;
+  padding: 20px 0;
+  text-align: center;
+  color: #888888;
 }
 
 .footer-links {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .footer-links a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
 }
 
 .footer-links a:hover {
-    color: #00bfff;
+  color: #00bfff;
 }
 
 .social-media {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .social-media a {
-    margin: 0 10px;
-    color: white;
-    text-decoration: none;
-    font-size: 1.5em;
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
 }
 
 .social-media a:hover {
-    color: #00bfff;
+  color: #00bfff;
 }
 
 /* Accessibility */
 a:focus {
-    outline: 3px solid #00bfff;
-    outline-offset: 4px;
+  outline: 3px solid #00bfff;
+  outline-offset: 4px;
 }
 
 /* Profile Card Styles */
 .profile-container {
-    margin: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-
+  margin: 30px;
+  display: flex;
+  flex-direction: block;
+  gap: 35px;
+  align-items: center;
+  margin-left: 8%;
 }
 
 .profile-card {
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .profile-card img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 .profile-card h2 {
-    margin: 10px 0 5px;
-    font-size: 24px;
+  margin: 10px 0 5px;
+  font-size: 24px;
 }
 
 .profile-card p {
-    margin: 5px 0;
-    color: #555;
+  margin: 5px 0;
+  color: #555;
 }
 
 /* Blog Styles */
 .blog-section {
-    padding: 40px 20px;
-    background-color: #444444;
-    margin-top: 40px;
+  padding: 40px 20px;
+  background-color: #444444;
+  margin-top: 40px;
 }
 
 .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px;
 }
 
 .blog-card {
-    background-color: #333333;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+  background-color: #333333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .blog-card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .blog-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
 }
 
 .blog-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .blog-content {
-    padding: 20px;
+  padding: 20px;
 }
 
 .blog-content h3 {
-    color: rgb(4, 250, 37);
-    margin-bottom: 10px;
-    text-decoration: none;
+  color: rgb(4, 250, 37);
+  margin-bottom: 10px;
+  text-decoration: none;
 }
 
-
 .blog-date {
-    color: #888888;
-    font-size: 0.9em;
-    margin-bottom: 10px;
+  color: #888888;
+  font-size: 0.9em;
+  margin-bottom: 10px;
 }
 
 .blog-excerpt {
-    color: white;
-    margin-bottom: 15px;
+  color: white;
+  margin-bottom: 15px;
 }
 
 .read-more {
-    display: inline-block;
-    padding: 8px 15px;
-    background-color: #015c1f;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #015c1f;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .read-more:hover {
-    background-color: #1e8f36;
+  background-color: #1e8f36;
 }
 
 /* Table Styles */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 40px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
 }
 
-th, td {
-    border: 1px solid white;
-    padding: 10px;
-    text-align: center;
+th,
+td {
+  border: 1px solid white;
+  padding: 10px;
+  text-align: center;
 }
 
 th {
-    background-color: #444444;
+  background-color: #444444;
 }
 
 tr:nth-child(even) {
-    background-color: #555555;
+  background-color: #555555;
 }
 
 /* Filter Styles */
 .filter {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .filter button {
-    background-color: #444444;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
+  background-color: #444444;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
 }
 
 .filter button:hover {
-    background-color: #1e8f36;
+  background-color: #1e8f36;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .logo {
-        margin-bottom: 10px;
-    }
+  .logo {
+    margin-bottom: 10px;
+  }
 
-    .main-content h1 {
-        font-size: 2.5em;
-    }
+  .main-content h1 {
+    font-size: 2.5em;
+  }
 
-    .main-content p {
-        font-size: 1.2em;
-    }
+  .main-content p {
+    font-size: 1.2em;
+  }
 
-    .buttons a {
-        font-size: 1em;
-        padding: 8px 15px;
-    }
+  .buttons a {
+    font-size: 1em;
+    padding: 8px 15px;
+  }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #444444;
-    }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #444444;
+  }
 
-    .nav-links.active {
-        display: flex;
-    }
+  .nav-links.active {
+    display: flex;
+  }
 
-    .blog-grid {
-        grid-template-columns: 1fr;
-    }
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
 }
-
 
 /* 5. Make sure to test your website after making these changes to ensure that all styles are applied correctly.
 
