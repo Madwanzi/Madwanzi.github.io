@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueHens CTF 2024 Writeup</title>
+    <link rel="stylesheet" href="blog.css">
+    <script src="blog.js" defer></script>
+</head>
+<body>
+    <header>
+        <img src="CTF logos/UDCTF-logo.png" alt="bluehens-ctf-2024" class="logo">
+        
+    </header>
+    <!-- Sidebar for Table of Contents -->
+        <aside class="sidebar" id="sidebar">
+                       <nav class="toc">
+                <h2>Table of Contents</h2>
+                <ul>     
+                    <li><a href="#web">WEB</a></li>
+                    <li><a href="#osint">OSINT</a></li>
+                    <li><a href="#crypto">CRYPTO</a></li>
+                    <li><a href="#forensics">FORENSICS</a></li>
+                    <li><a href="#pwn">PWN</a></li>
+                    <li><a href="#reversing">REVERSING</a></li>
+                    <li><a href="#misc">MISC</a></li>
+                </ul>
+            </nav>
+        </aside>
+    <div class="container-button">
+         <button class="toggle-button" id="side_button" onclick="toggleSidebar()">☰ </button>
+    </div>
+    <div class="container">
+        
+
+        <!-- Main Content -->
+        <main class="content" id="content">
+            <section class="challenge-files">
+                <h2>Challenge Files</h2>
+            </section>
+
+            
+             <!-- WEB Section -->
+             <section class="challenges" id="web">
+                <h2>WEB</h2>
+                <div class="challenge-item">
+                    <h3>Training Problem: Intro to Web
+                        50</h3>
+                    <p><strong>Challenge Description:</strong> It's nice to have some training problems.
+
+                        -ProfNinja
+                        
+                        <a href="https://bluehens-webstuff.chals.io/">https://bluehens-webstuff.chals.io/</a>
+                        </p>
+                    <img src="bluehens CTF 2024/Web.jpg" alt="bluehens-ctf-2024" class="logo">
+                    <h4>Solve:</h4>
+                    <p>I navigated to the site and received the following.</p>
+                    <img src="bluehens CTF 2024/image-1.jpg" alt="bluehens-ctf-2024" class="logo">
+                    <p>I viewed the source code, and there was nothing else to tell us where to go, so we needed to use this prompt. It says “version control”, which usually means that /.git is a directory for verison control based on previous CTFs. I navigated to it.</p>
+                    <img src="bluehens CTF 2024/image-2.jpg" alt="bluehens-ctf-2024" class="logo">
+                    <p>
+                        We confirmed there is a /.git directory. I used git-dumper to dump the /.git: https://github.com/arthaud/git-dumper</p>
+
+                    <pre><code>udctf{marcecko_licenseplate}</code></pre>
+                </div>
+            </section>
+
+            <!-- OSINT Section -->
+            <section class="challenges" id="osint">
+                <h2>OSINT</h2>
+                <div class="challenge-item">
+                    <h3>Intro to OSINT</h3>
+                    <p><strong>Challenge Description:</strong> A famous person is selling their house...</p>
+                    <h4>Solve:</h4>
+                    <p>I started by reverse image searching...</p>
+                    <pre><code>udctf{marcecko_licenseplate}</code></pre>
+                </div>
+            </section>
+
+            <!-- CRYPTO Section -->
+            <section class="challenges" id="crypto">
+                <h2>CRYPTO</h2>
+                <div class="challenge-item">
+                    <h3>Nonogram Pt. 1: Simple Enough</h3>
+                    <p><strong>Challenge Description:</strong> When you get past the puzzle, you now face a classic encryption / old-school stego encoding. Wrap the text you find in `UDCTF{TEXTHERE}`. -Grace</p>
+                    <img src="bluehens CTF 2024/image-71.jpg.webp" alt="bluehens-ctf-2024" class="logo">
+                    <h4>Solve:</h4>
+                    <p>In this challenge, we were given a Nonogram Puzzle to solve, then we received a encrypted code.</p>
+                    <p>Encrypted code:<pre><code>UDDDU UDUUU DUDUD UUDUU UDUDU UUUUU DUUDU UUDUU UUUDD</code></pre></p>
+                    <p>The challenge information says it’s an old-school cipher, so I thought it might be the Bacon’s cipher invented by Fancis Bacon in 1605. I used dcode to decode this.
+
+                        <a href="https://www.dcode.fr/bacon-cipher">https://www.dcode.fr/bacon-cipher</a></p>
+                        <img src="bluehens CTF 2024/image-72.webp" alt="bluehens-ctf-2024" class="logo">
+                    <pre><code>UDCTF{PIXELATED}</code></pre>
+                </div>
+            </section>
+
+            <hr>
+
+            <section class="challenges" id="crypto">
+                <h2>CRYPTO</h2>
+                <div class="challenge-item">
+                    <h3>XS1: XOR without XOR</h3>
+                    <p><strong>Challenge Description:</strong> 
+                        This is how XOR makes me feel.
+                        *This series of problems is called the XOR SCHOOL. For whatever reason I just love xor problems and over the years there are many that have charmed my soul. This sequence is an homage to the many many ways that xor shows up in CTFs. I hope you can see some of the beauty that I see through them. -ProfNinja*</p>
+                    
+                    <img src="bluehens CTF 2024/xorwithout.jpg" alt="bluehens-ctf-2024" class="logo">
+                        <img src="bluehens CTF 2024/XOR.jpg" alt="bluehens-ctf-2024" class="logo">
+                        <h4>Solve:</h4>
+                    <p>I created a script in Python to recreate this XOR, and decode the flag for us.</p>
+                    <pre><code>
+                        # Given flag string from the image output
+                        flag = "u_cnfrj_sr_b_34}yd1tt{0upt04lbmb"
+                        
+                        # Repeat the flag 32 times, then apply the slicing
+                        decoded_flag = (flag * 32)[::17][:32]
+                        
+                        # Print the result
+                        print("Decoded flag:", decoded_flag)
+                    </code></pre>
+                    <p>Running this script provided us the flag.</p>
+                    <pre><code>
+                        ┌──(Tux㉿kali-2024v2)-[~/Desktop]
+                        └─$ python test.py
+                        Decoded flag: udctf{just_4_b4by_1ntr0_pr0bl3m}
+                    </code></pre>
+                    <pre><code>udctf{just_4_b4by_1ntr0_pr0bl3m}</code></pre>
+                </div>
+            </section>
+
+
+            <hr>
+
+            <section class="challenges" id="crypto">
+                <h2>CRYPTO</h2>
+                <div class="challenge-item">
+                    <h3>ROTOLACTOR</h3>
+                    <p><strong>Challenge Description:</strong>  "Got Milk?" -JayV</p>
+                    <img src="bluehens CTF 2024/rotolactor.jpg" alt="bluehens-ctf-2024" class="logo">
+                    <h4>Solve:</h4>
+                    <p>To start, I was looking at the challenge name and it starts with ROT, so I thought, ROT13. I translated this file they gave us to ROT13 and it came out with “Moo” language.</p>
+                    <pre><code>
+                        OOOMoOMoOMoOMoOMoOMoOMoOMoOMMMmoOMMMMMMmoOMMMMOOMOomOoMoOmoOmoomOo
+                        MMMmoOMMMMMMmoOMMMMOOMOomOoMoOmoOmoomOoMMMmoOMMMMMMmoOMMMMOOMOomOo
+                        MoOmoOmooOOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomOomOomOoMMMmoO
+                        moOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoOMoOMoomOoOOOmoOOOOmOomOo
+                        MMMmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoOMoomOoOOOmoOOOOmOomOoMMM
+                        moOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoomOoOOOmoOOOOmOomOoMMMmoOMMM
+                        MOOMOomoOMoOmOomoomOomOomOoMMMmoOmoOmoOMMMMOOMOomoOMoOmOomoomoOMoO
+                        MoOMoOMoOMoomOoOOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomoOMoOMoO
+                        MoOMoOMoOMoOMoomOoOOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomOomOo
+                        MMMmoOmoOMMMMOOMOomoOMoOmOomoomOomOomOoMMMmoOmoOmoOMMMMOOMOomoOMoO
+                        mOomoomoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoomOoOOOmoOOOOmOomOoMMM
+                        moOMMMMOOMOomoOMoOmOomoomOomOoMMMmoOmoOMMMMOOMOomoOMoOmOomoomoOMoO
+                        MoOMoOMoOMoOMoOMoOMoOMoomOoOOOmoOOOOmOomOomOoMMMmoOmoOMMMMOOMOomoO
+                        MoOmOomoomoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoomOo
+                        OOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomOomOoMMMmoOmoOMMMMOOMOo
+                        moOMoOmOomoomOomOomOoMMMmoOmoOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoO
+                        MoOMoOMoOMoOMoomOoOOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomOomOo
+                        mOoMMMmoOmoOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoOMoOMoOMoOMoOMoO
+                        MoOMoOMoOMoOMoOMoOMoomOoOOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoo
+                        mOomOoMMMmoOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoOMoomOoOOOmoOOOO
+                        mOomOomOoMMMmoOmoOMMMMOOMOomoOMoOmOomoomOomOomOoMMMmoOmoOmoOMMMMOO
+                        MOomoOMoOmOomoomoOMoOMoomOoOOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOo
+                        moomOomOoMMMmoOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoOMoomOoOOOmoO
+                        OOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomOomOomOoMMMmoOmoOmoOMMMMOOMOo
+                        moOMoOmOomoomoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoomOo
+                        OOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomOomOoMMMmoOmoOMMMMOOMOo
+                        moOMoOmOomoomOomOomOoMMMmoOmoOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoO
+                        MoOMoOMoOMoOMoOMoOMoomOoOOOmoOOOOmOomOomOoMMMmoOmoOMMMMOOMOomoOMoO
+                        mOomoomoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoomOoOOO
+                        moOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomOomOoMMMmoOmoOMMMMOOMOomoO
+                        MoOmOomoomOomOomOoMMMmoOmoOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoO
+                        MoOMoomOoOOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomOomOomOoMMMmoO
+                        moOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoO
+                        MoOMoOMoOMoomOoOOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomOomOoMMM
+                        moOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoOMoOMoOMoomOoOOOmoOOOOmOo
+                        mOomOoMMMmoOmoOMMMMOOMOomoOMoOmOomoomOomOomOoMMMmoOmoOmoOMMMMOOMOo
+                        moOMoOmOomoomoOMoOMoomOoOOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoo
+                        mOomOoMMMmoOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoOMoOMoOMoOMoOMoO
+                        MoOMoOMoOMoOMoOMoomOoOOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomOo
+                        mOoMMMmoOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoOMoomOoOOOmoOOOOmOo
+                        mOoMMMmoOMMMMOOMOomoOMoOmOomoomOomOomOoMMMmoOmoOmoOMMMMOOMOomoOMoO
+                        mOomoomoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoomOoOOOmoO
+                        OOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomOomOoMMMmoOmoOMMMMOOMOomoOMoO
+                        mOomoomOomOomOoMMMmoOmoOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoOMoo
+                        mOoOOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoomOomOoMMMmoOmoOMMMMOO
+                        MOomoOMoOmOomoomoOMoOMoOMoOMoOMoOMoOMoOMoOMoomOoOOOmoOOOOmOomOoMMM
+                        moOMMMMOOMOomoOMoOmOomoomOomOoMMMmoOmoOMMMMOOMOomoOMoOmOomoomoOMoO
+                        MoOMoOMoOMoOMoOMoOMoOMoOMoomOoOOOmoOOOOmOomOomOoMMMmoOmoOMMMMOOMOo
+                        moOMoOmOomoomOomOomOoMMMmoOmoOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoO
+                        MoOMoOMoomOoOOOmoOOOOmOomOomOoMMMmoOmoOMMMMOOMOomoOMoOmOomoomOomOo
+                        mOoMMMmoOmoOmoOMMMMOOMOomoOMoOmOomoomoOMoOMoOMoOMoOMoOMoOMoOMoOMoO
+                        MoOMoOMoOMoOMoOMoOMoomOoOOOmoOOOOmOomOoMMMmoOMMMMOOMOomoOMoOmOomoo
+                        mOomOoMMMmoOmoOMMMMOOMOomoOMoOmOomoomOomOomOoMMMmoOmoOmoOMMMMOOMOo
+                        moOMoOmOomoomoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoOMoomOo</code></pre>
+
+                        <p>I’ve seen this before. I went to <a href="https://www.jdoodle.com/execute-cow-online">https://www.jdoodle.com/execute-cow-online</a> and pasted in the code above and clicked on “execute”, and it gave me the flag.</p>
+                    <img src="bluehens CTF 2024/image-73.webp" alt="bluehens-ctf-2024" class="logo">
+                        <pre><code>UDCTF{h0w_d1d_y0u_f1nd_thi5?}</code></pre>
+                </div>
+            </section>
+
+            <hr>
+
+            <!-- FORENSICS Section -->
+            <section class="challenges" id="forensics">
+                <h2>FORENSICS</h2>
+                <div class="challenge-item">
+                    <h3>Hidden Data Extraction</h3>
+                    <p><strong>Challenge Description:</strong> Steganography in an image...</p>
+                    <h4>Solve:</h4>
+                    <p>I used steghide to extract hidden information...</p>
+                    <pre><code>udctf{stego_found}</code></pre>
+                </div>
+            </section>
+
+            <!-- PWN Section -->
+            <section class="challenges" id="pwn">
+                <h2>PWN</h2>
+                <div class="challenge-item">
+                    <h3>Buffer Overflow</h3>
+                    <p><strong>Challenge Description:</strong> Exploit a classic buffer overflow vulnerability...</p>
+                    <h4>Solve:</h4>
+                    <p>I used GDB to analyze...</p>
+                    <pre><code>udctf{buffer_overflow}</code></pre>
+                </div>
+            </section>
+
+            <!-- REVERSING Section -->
+            <section class="challenges" id="reversing">
+                <h2>REVERSING</h2>
+                <div class="challenge-item">
+                    <h3>Training Problem: Intro to Reverse</h3>
+                    <p><strong>Challenge Description:</strong>  Just a classic flagchecker. -ProfNinja (Try using dogbolt.org)</p>
+                    <img src="bluehens CTF 2024/rev.jpg" alt="bluehens-ctf-2024" class="logo">
+                    <h4>Solve:</h4>
+                    <p>I loaded the flagchecker file into Ghidra and looked at the main function.</p>
+                    <pre><code>
+                        undefined8 main(void)
+
+                        {
+                          undefined8 uVar1;
+                          long in_FS_OFFSET;
+                          int local_4c;
+                          undefined8 local_48;
+                          undefined8 local_40;
+                          undefined4 local_38;
+                          char local_28 [24];
+                          long local_10;
+                          
+                          local_10 = *(long *)(in_FS_OFFSET + 0x28);
+                          local_48 = 0x2c6c766271616375;
+                          local_40 = 0x212352275c642a6e;
+                          local_38 = 0x6c21;
+                          fgets(local_28,0x13,stdin);
+                          local_4c = 0;
+                          do {
+                            if (0x11 < local_4c) {
+                              puts("You got it!");
+                              uVar1 = 0;
+                        LAB_00101246:
+                              if (local_10 != *(long *)(in_FS_OFFSET + 0x28)) {
+                                            /* WARNING: Subroutine does not return */
+                                __stack_chk_fail();
+                              }
+                              return uVar1;
+                            }
+                            if (local_28[local_4c] - local_4c != (int)*(char *)((long)&local_48 + (long)local_4c)) {
+                              puts("wrong");
+                              uVar1 = 1;
+                              goto LAB_00101246;
+                            }
+                            local_4c = local_4c + 1;
+                          } while( true );
+                        }
+                    </code></pre>
+                    <pre><code>local_28[local_4c] - local_4c == (int)*(char *)((long)&local_48 + (long)local_4c)</code></pre>
+                    <pre><code>flag[i] = (char)((int)*(char *)((long)&local_48 + i) + i)</code></pre>
+                    <pre><code>import struct
+
+                        # Hardcoded values based on `local_48`, `local_40`, and `local_38`
+                        local_48 = 0x2c6c766271616375
+                        local_40 = 0x212352275c642a6e
+                        local_38 = 0x6c21
+                        
+                        # Combine the values into a byte array in little-endian format
+                        flag_bytes = struct.pack("<Q", local_48) + struct.pack("<Q", local_40) + struct.pack("<I", local_38)
+                        
+                        # Calculate each character in the flag
+                        flag = ''.join(chr(flag_bytes[i] + i) for i in range(len(flag_bytes)))
+                        
+                        print("Calculated flag:", flag)
+                    </code></pre>
+                    <p>local_48, 40 and 38 are hard coded values in hexadecimal, representing the expected parts of the flag. local_218 is the buffer where the input flag is stored from fgets.
+
+                        The flag checking function loops over each character in the input flag (up to 0x11 or 17 characters). For each character at index local_4c, it checks if:</p>
+
+                    <pre><code>import struct</code></pre>
+                    <pre><code>
+                        # Hardcoded values based on `local_48`, `local_40`, and `local_38`
+                        local_48 = 0x2c6c766271616375
+                        local_40 = 0x212352275c642a6e
+                        local_38 = 0x6c21
+                    </code></pre>
+                    <pre><code>
+                        # Combine the values into a byte array in little-endian format
+                        flag_bytes = struct.pack("<Q", local_48) + struct.pack("<Q", local_40) + struct.pack("<I", local_38)
+                    </code></pre>
+                    <p>
+                        This means the input character minus its index must much the corresponding byte in local_48, 40 and 38.
+
+                        Since each character flag[i] at position i must satisfy:</p>
+                    <pre><code>flag = ''.join(chr(flag_bytes[i] + i) for i in range(len(flag_bytes)))</code></pre>
+                    <pre><code>print("Calculated flag:", flag)</code></pre>
+                    <pre><code>
+                        ┌──(rsa_env)─(Tux㉿kali-2024v2)-[~/Desktop]
+                        └─$ python test.py
+                        Calculated flag: udctf{r3v3ng3_101}
+                    </code></pre>
+                    <pre><code>udctf{r3v3ng3_101}</code></pre>
+
+
+                </div>
+            </section>
+
+<hr>
+
+            <!-- MISC Section -->
+            <section class="challenges" id="misc">
+                <h2>MISC</h2>
+                <div class="challenge-item">
+                    <h3>
+                        AlgebrarbeglA
+                        100
+                    </h3>
+                    <p><strong>Challenge Description:</strong> 78! - k = k - !87
+
+                        Solve for k flag format is udctf{k}
+                        
+                        -ProfNinja
+                        
+                        Dedicated to Wrath of Math </p>
+                        <p></p>
+                        <img src="bluehens CTF 2024/AlgebrarbeglA.png" alt="bluehens-ctf-2024" class="logo">
+                    <h4>Solve:</h4>
+                    <p>I approached the problem by...</p>
+                    <p>I have tried to perform the math in a calculator. Math error is all I see.
+
+                        wrote the code
+                       
+                       I first had to work out with what I knew which is the factorial of 78 (78!)
+                       
+                       I did not know of !87. This brought about syntax error.
+                       
+                       Did a little bit of google search on this
+                       <a href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols</a>
+                      stumbled apon this for the !87
+                      <a href="https://en.wikipedia.org/wiki/Subfactorial">https://en.wikipedia.org/wiki/Subfactorial</a>
+                       
+                       Put together some code. 
+                       AlgebrarbeglA.py
+                       </p>
+                       <img src="bluehens CTF 2024/AlgebrarbeglA2.png" alt="bluehens-ctf-2024" class="logo">
+                       <p>and boom the flag</p>
+                       
+                    <pre><code>udctf{387700288526444839185460979130991103610316350951544192244807199359099600806691328655309595021094080317314686982970896828895806969367}</code></pre>
+                </div>
+                <hr>
+                <div class="challenge-item">
+                    <h3>
+                        Welcome Letter
+                        50
+                    </h3>
+                    <p><strong>Challenge Description:</strong>Welcome to the CTF. A few notes:
+                        <p>* I made 10 XOR School problems, we're a uni so teaching will always be part of our CTFs.  These are made as an ode to the beauty of XOR.  
+
+                            * Some Training problems in the main categories: Reverse, PWN, Web, and Crypto just for first-timers.  Google the problem title + "CTF Writeup" and you'll find similar problems out there that you can mimic I'm sure.
+                            
+                            * In playtesting many of the problems were fun puzzles but I can imagine someone calling them "guessy", forgive us now.  I killed any that felt egregious and the others I've labelled as "guess school".  Behind that label is the idea that deductive reasoning within the meta of CTFing is actuallyy a muscle.  Many (very good) teams have a member that specializes in guessy problems.  I think that XOR and the guess school problems cultivate a sort of "escape room" sensibility that often is overlooked in CTF training as too frustrating.  I think it's valuable as a life skill but consider this a trigger warning, stay away from those ones if you tend to get frustrated.
+                            
+                            * I tried to make sure the main categories have enough depth to chew on but not all of the main categories are equally as deep.  I think PWN and WEB are maybe a little lighter than perfection but we have a ton of challenges and 12 less hours, so your WEB anchor might need to go help someone else after day 1.
+                            
+                            * We're a student club.  Every year students make problems.  They are fun and quirky but this year they made a TON of forensics and misc and problems that maybe crawl over several categories.  The heavy hitting teams might not love that but our deepest problems tend to get deeper and our n00b problems stay light, just the nature of undergrads.  Just have fun with it.
+                            
+                            * We pride ourselves on customer service, jump in the discord and ask questions and I'll try to teach you stuff without lessening the competitive integrity of the competition.
+                            
+                            * Some authors used udctf{} others used UDCTF{} so bear that in mind when validating your hypotheses.
+                            
+                            * We have a long history of a minecraft category, this year we don't.  Sorry.  I miss it.  FSG lives on in ranked.</p>
+                        <img src="bluehens CTF 2024/welcom.jpg" alt="bluehens-ctf-2024" class="logo">
+                    <h4>Solve:</h4>
+                    <p>I approached the problem by...</p>
+                                           
+                    <pre><code>UDCTF{guessy_is_sometimes_deduction_sometimes_awful}</code></pre>
+                </div>
+            </section>
+            <hr>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 BlueHens CTF Writeup</p>
+    </footer>
+
+    <script src="blog.js"></script>
+</body>
+</html>
