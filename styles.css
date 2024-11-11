@@ -146,8 +146,9 @@ a:focus {
   margin: 30px;
   display: flex;
   flex-direction: block;
-  gap: 20px;
+  gap: 35px;
   align-items: center;
+  margin-left: 8%;
 }
 
 .profile-card {
