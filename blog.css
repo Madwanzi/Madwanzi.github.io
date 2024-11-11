@@ -10,12 +10,12 @@ body {
 .container {
     display: flex;
     margin-left: 50px;
+    flex-direction: row;
 }
 
 /* Sidebar styling */
 .sidebar {
     width: 20vw;
-    margin-left: -30vw;
     background-color: #f5f5f5;
     padding: 1rem;
     border-right: 1px solid #ddd;
@@ -27,19 +27,17 @@ body {
     z-index: 1;
 }
 
-.logo{
+.logo {
     height: 270px;
 }
 
 /* Sidebar hidden off-screen */
 .sidebar.collapsed {
-    transform: translateX(-100%); /* Moves sidebar off-screen */
+    transform: translateX(-100%);
 }
-
 
 .toggle-button {
     display: block;
-
     background-color: #004080;
     color: #fff;
     border: none;
@@ -47,7 +45,6 @@ body {
     font-size: 1rem;
     cursor: pointer;
     text-align: left;
-    margin-left: 0vw;
 }
 
 .toc {
@@ -77,13 +74,14 @@ body {
 /* Main content styling */
 .content {
     padding: 2rem;
-    width: 80vw;
-    margin-left: 0vw;
+    width: calc(100% - 20vw); /* Adjusted for sidebar */
+    margin-left: 20vw;
     transition: margin-left 0.3s ease;
 }
 
 .content.collapsed {
     margin-left: 0;
+    width: 100%;
 }
 
 header, footer {
@@ -91,15 +89,7 @@ header, footer {
     color: #fff;
     text-align: center;
     padding: 1rem;
-    
-    
 }
-/* 
-.container-button{
-    width: 80vw;
-    margin-left: 20vw;
-    background-color: aqua;
-} */
 
 h1, h2 {
     text-align: center;
@@ -107,4 +97,72 @@ h1, h2 {
 
 section, p {
     text-align: justify;
+}
+
+/* Responsive Design */
+
+/* Tablet view (768px and below) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50vw;
+        transform: translateX(-50vw);
+    }
+
+    .sidebar.collapsed {
+        transform: translateX(-100%);
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .toggle-button {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .toc h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Mobile view (480px and below) */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 80vw;
+        transform: translateX(-80vw);
+    }
+
+    .sidebar.collapsed {
+        transform: translateX(-100%);
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    header, footer {
+        padding: 0.8rem;
+    }
+
+    .toggle-button {
+        font-size: 0.8rem;
+        padding: 0.6rem;
+    }
+
+    .toc h2 {
+        font-size: 1.2rem;
+    }
+
+    .toc ul li a {
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        height: 200px;
+    }
 }
