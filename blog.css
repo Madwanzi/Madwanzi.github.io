@@ -131,7 +131,6 @@ p {
         font-size: 1.3rem;
     }
 }
-
 /* Mobile view (480px and below) */
 @media (max-width: 480px) {
     .sidebar {
